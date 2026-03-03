@@ -14,7 +14,7 @@
 - **Acessibilidade:** Foco em contraste e leitura, mesmo com efeitos de transparência.
 
 ## 📸 Demonstração
-![Preview do Potter Sounds](./imagem-do-projeto.png)
+![Preview do Potter Sounds](./imagem-do-projeto.jpg)
 
 ## 🛠️ Como executar
 1. Clone o repositório.
