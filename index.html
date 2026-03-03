@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potter Sounds - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-yellow: #CCFF00;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(30, 30, 30, 0.6);
+            --input-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            /* Efeito de ondas circulares no fundo */
+            background: radial-gradient(circle at center, rgba(204, 255, 0, 0.05) 0%, transparent 70%),
+                        radial-gradient(circle at center, #121212 0%, #000 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #ffffff;
+        }
+
+        /* Efeito de "Ondas Sonoras" no background */
+        .bg-waves {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(204, 255, 0, 0.2);
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        .login-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .header-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .bolt-icon {
+            font-size: 50px;
+            color: var(--neon-yellow);
+            filter: drop-shadow(0 0 10px var(--neon-yellow));
+            margin-bottom: 10px;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            background: var(--input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--neon-yellow);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-entrar {
+            width: 100%;
+            padding: 14px;
+            background: var(--neon-yellow);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-entrar:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+        }
+
+        .divider {
+            margin: 25px 0;
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            margin-top: 25px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .footer-links a strong {
+            color: var(--neon-yellow);
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-waves" style="animation-delay: 0s;"></div>
+    <div class="bg-waves" style="animation-delay: 2s;"></div>
+
+    <div class="login-card">
+        <div class="header-logo">
+            <div class="bolt-icon">⚡</div>
+            <div class="brand-name">POTTER SOUNDS</div>
+        </div>
+
+        <h2>DESTAQUE O SOM</h2>
+
+        <div class="form-group">
+    <input type="text" id="emailInput" placeholder="Email ou usuário">
+</div>
+<div class="form-group">
+    <input type="password" id="senhaInput" placeholder="Senha">
+</div>
+<button type="button" onclick="validarLogin()" class="btn-entrar">ENTRAR</button>
+
+<script>
+    function validarLogin() {
+        // Captura os valores digitados
+       const email = document.getElementById('emailInput').value;
+    const senha = document.getElementById('senhaInput').value;
+    const mensagemErro = document.getElementById('mensagem-status');
+
+    mensagemErro.style.display = "none";
+    mensagemErro.innerHTML = "";
+
+        // Credenciais definidas por você
+        const emailCorreto = "irelogpvp13@gmail.com";
+        const senhaCorreta = "280880jp";
+
+        if (email === emailCorreto && senha === senhaCorreta) {
+        // Sucesso: Feedback visual antes de redirecionar
+        mensagemErro.style.color = "#CCFF00";
+        mensagemErro.innerHTML = "Acesso autorizado! Preparando seu som...";
+        mensagemErro.style.display = "block";
+            window.location.href = "https://www.spotify.com"; 
+        } , 1500 {
+        } else {
+           // Erro: Feedback visual sem travar a página
+        mensagemErro.style.color = "#ff4444";
+        mensagemErro.innerHTML = "E-mail ou senha incorretos. Tente novamente.";
+        mensagemErro.style.display = "block";
+        
+        // Efeito visual no campo de senha
+        document.getElementById('senhaInput').style.borderColor = "#ff4444";
+        document.getElementById('senhaInput').value = "";
+    }
+        }
+    }
+
+    // Permite dar 'Enter' no teclado para logar
+    document.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            validarLogin();
+        }
+    });
+</script>
+
+        <div class="divider">ou continuar com</div>
+
+        <button class="social-btn">
+            <img src="https://www.google.com/favicon.ico" width="16"> CONTINUAR COM GOOGLE
+        </button>
+        <button class="social-btn">
+            <img src="https://www.apple.com/favicon.ico" width="16"> CONTINUAR COM APPLE
+        </button>
+        <button class="social-btn">
+            <img src="https://www.facebook.com/favicon.ico" width="16"> CONTINUAR COM FACEBOOK
+        </button>
+
+        <div class="footer-links">
+            <a href="#">ESQUECEU A SENHA?</a>
+            <a href="#">NÃO TEM CONTA? <strong>INSCREVA-SE</strong></a>
+        </div>
+    </div>
+</head>
+<body>
+    
+</body>
+</html>
